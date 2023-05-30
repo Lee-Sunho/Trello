@@ -1,6 +1,8 @@
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import React from "react";
+import { useSetRecoilState } from "recoil";
+import { toDoState } from "../atoms";
 
 const Card = styled.div<{ isDragging: boolean }>`
   border-radius: 5px;
@@ -12,13 +14,45 @@ const Card = styled.div<{ isDragging: boolean }>`
     props.isDragging ? "0px 2px 10px rgba(0, 0, 0, 0.05)" : "none"};
 `;
 
+const Button = styled.button`
+  margin-left: 50px;
+`;
+
 interface IDraggableCardProps {
   toDoId: number;
   toDoText: string;
   index: number;
+  boardId: string;
 }
 
-function DraggableCard({ toDoId, toDoText, index }: IDraggableCardProps) {
+function DraggableCard({
+  toDoId,
+  toDoText,
+  index,
+  boardId,
+}: IDraggableCardProps) {
+  const setToDos = useSetRecoilState(toDoState);
+
+  const onEdit = () => {
+    const newToDo = window.prompt("", toDoText);
+
+    if (newToDo === null || newToDo === undefined) {
+      return;
+    }
+
+    if (newToDo === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
+
+    setToDos((allBoards) => {
+      const targetBoard = [...allBoards[boardId]];
+      const taskObj = { ...targetBoard[index] };
+      taskObj.text = newToDo!;
+      targetBoard.splice(index, 1, taskObj);
+      return { ...allBoards, [boardId]: targetBoard };
+    });
+  };
   return (
     <Draggable draggableId={toDoId + ""} index={index}>
       {(magic, snapshot) => (
@@ -29,6 +63,7 @@ function DraggableCard({ toDoId, toDoText, index }: IDraggableCardProps) {
           {...magic.dragHandleProps}
         >
           {toDoText}
+          <Button onClick={onEdit}>수정하기</Button>
         </Card>
       )}
     </Draggable>

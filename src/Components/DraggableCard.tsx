@@ -3,6 +3,8 @@ import styled from "styled-components";
 import React from "react";
 import { useSetRecoilState } from "recoil";
 import { toDoState } from "../atoms";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Card = styled.div<{ isDragging: boolean }>`
   border-radius: 5px;
@@ -12,6 +14,9 @@ const Card = styled.div<{ isDragging: boolean }>`
     props.isDragging ? "#74b9ff" : props.theme.cardColor};
   box-shadow: ${(props) =>
     props.isDragging ? "0px 2px 10px rgba(0, 0, 0, 0.05)" : "none"};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Button = styled.button`
@@ -63,7 +68,7 @@ function DraggableCard({
           {...magic.dragHandleProps}
         >
           {toDoText}
-          <Button onClick={onEdit}>수정하기</Button>
+          <FontAwesomeIcon icon={faPen} onClick={onEdit} />
         </Card>
       )}
     </Draggable>

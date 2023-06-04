@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { toDoState } from "./atoms";
 import Board from "./Components/Board";
+import TrashBin from "./Components/TrashBin";
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,8 +25,18 @@ const Boards = styled.div`
 function App() {
   const [toDos, setToDos] = useRecoilState(toDoState);
   const onDragEnd = (info: DropResult) => {
-    const { draggableId, destination, source } = info;
+    const { destination, source } = info;
     if (!destination) return;
+
+    if (destination.droppableId === "trash") {
+      // 쓰레기통으로 드롭된 경우 삭제
+      setToDos((allBoards) => {
+        const sourceBoard = [...allBoards[source.droppableId]];
+        sourceBoard.splice(source.index, 1);
+        return { ...allBoards, [source.droppableId]: sourceBoard };
+      });
+      return;
+    }
     if (destination?.droppableId === source.droppableId) {
       // same board movement.
       setToDos((allBoards) => {
@@ -52,6 +63,7 @@ function App() {
       });
     }
   };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Wrapper>
@@ -61,6 +73,7 @@ function App() {
           ))}
         </Boards>
       </Wrapper>
+      <TrashBin />
     </DragDropContext>
   );
 }

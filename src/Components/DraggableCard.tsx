@@ -3,7 +3,7 @@ import styled from "styled-components";
 import React from "react";
 import { useSetRecoilState } from "recoil";
 import { toDoState } from "../atoms";
-import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Card = styled.div<{ isDragging: boolean }>`
@@ -17,10 +17,6 @@ const Card = styled.div<{ isDragging: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-const Button = styled.button`
-  margin-left: 50px;
 `;
 
 interface IDraggableCardProps {
@@ -62,6 +58,9 @@ function DraggableCard({
     <Draggable draggableId={toDoId + ""} index={index}>
       {(magic, snapshot) => (
         <Card
+          className={`${snapshot.isDragging ? "dragging" : ""} ${
+            snapshot.draggingOver === "trash" ? "dragging-over-trash" : ""
+          }`}
           isDragging={snapshot.isDragging}
           ref={magic.innerRef}
           {...magic.draggableProps}

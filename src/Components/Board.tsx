@@ -73,7 +73,7 @@ function Board({ toDos, boardId }: IBoardProps) {
   return (
     <Wrapper>
       <Title>{boardId}</Title>
-      <Form onSubmit={handleSubmit(onValid)}>
+      <Form onSubmit={handleSubmit(onValid)} autoComplete="off">
         <input
           {...register("toDo", { required: true })}
           type="text"

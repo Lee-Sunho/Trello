@@ -1,46 +1,56 @@
-# Getting Started with Create React App
+# Trello
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🔍 프로젝트 설명
 
-## Available Scripts
+- 게시판 형식의 To-Do List 웹 페이지
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##### \* 이 프로젝트는 노마드 코더 "React JS 마스터클래스" 강의를 바탕으로 진행되었습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🚀 기능
 
-### `npm test`
+### 1. To-Do List
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/c2025f68-a952-4db1-95e2-9952449ce3b4">
 
-### `npm run build`
+To-Do, Doing, Done 세 개의 보드 별로 태스크를 분류할 수 있습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. 태스크 추가
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/2270b12a-5a6d-4a21-82ef-f21690d1f170">
 
-### `npm run eject`
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/04a49e04-8619-4607-aa2a-777f99ba7773">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+각 보드에 존재하는 입력 칸을 통해 태스크를 보드 별로 추가할 수 있습니다.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. 태스크 수정
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/b77fb127-0bb1-4bf2-9442-f56e5098ac61">
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/cfb51773-a14f-420c-8501-e0788f328c28">
 
-## Learn More
+각 태스크에 존재하는 수정 버튼을 통해 태스크를 수정할 수 있습니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. 태스크 이동
+
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/42f2b5b0-da4d-4c56-8ad4-f6407555047a">
+
+각 태스크를 드래그하여 다른 보드로 이동시킬 수 있습니다.
+
+<br>
+
+### 5. 태스크 삭제
+
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/4a930a51-f55e-4fac-ad2c-d8d99edcf13d">
+
+<img width="65%" src="https://github.com/Lee-Sunho/Trello/assets/69356432/a1f95dc1-6ea7-4f90-824c-0ff60e29e37b">
+
+태스크를 드래그하면 쓰레기통이 생성되고 쓰레기통에 해당 태스크를 드랍하면 삭제할 수 있습니다.

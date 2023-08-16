@@ -3,7 +3,7 @@
 ## 🔍 프로젝트 설명
 
 - 게시판 형식의 To-Do List 웹 페이지
-
+- 배포 링크 https://lee-sunho.github.io/Trello/ 를 통해 실행할 수 있습니다.
 ---
 
 <br>
